@@ -35,7 +35,7 @@ class SignUp extends Component {
       .then(res => res.json())
       .then(res => setUser(res.user))
       .then(() => flash(messages.signUpSuccess, 'flash-success'))
-      .then(() => history.push('/home'))
+      .then(() => history.push('/create-profile'))
       .catch(() => flash(messages.signUpFailure, 'flash-error'))
   }
 

@@ -6,6 +6,7 @@ import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import Home from './home/Home'
 import SignUp from './auth/components/SignUp'
+import CreateProfile from './auth/components/CreateProfile'
 import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
@@ -83,6 +84,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/home' render={() => (
             <Home user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-profile' render={() => (
+            <CreateProfile flash={this.flash} user={user} />
           )} />
           <Route exact path='/' render={() => (
             bannerHtml
