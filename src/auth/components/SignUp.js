@@ -10,9 +10,12 @@ class SignUp extends Component {
     super()
 
     this.state = {
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
-      passwordConfirmation: ''
+      passwordConfirmation: '',
+      userType: ''
     }
   }
 
@@ -22,8 +25,7 @@ class SignUp extends Component {
 
   signUp = event => {
     event.preventDefault()
-
-    const { email, password, passwordConfirmation} = this.state
+    const { email, password, passwordConfirmation, firstName,lastName,userType} = this.state
     const { flash, history, setUser } = this.props
 
     signUp(this.state)
@@ -33,17 +35,34 @@ class SignUp extends Component {
       .then(res => res.json())
       .then(res => setUser(res.user))
       .then(() => flash(messages.signUpSuccess, 'flash-success'))
-      .then(() => history.push('/'))
+      .then(() => history.push('/home'))
       .catch(() => flash(messages.signUpFailure, 'flash-error'))
   }
 
   render () {
-    const { email, password, passwordConfirmation} = this.state
+    const { email, password, passwordConfirmation, firstName, lastName, userType} = this.state
 
     return (
       <form className='auth-form' onSubmit={this.signUp}>
         <h3>Sign Up</h3>
-
+        <label htmlFor="firstName">First Name</label>
+        <input
+          required
+          name="firstName"
+          value={firstName}
+          type="text"
+          placeholder="First Name"
+          onChange={this.handleChange}
+        />
+        <label htmlFor="lastName">Last Name</label>
+        <input
+          required
+          name="lastName"
+          value={lastName}
+          type="text"
+          placeholder="Last Name"
+          onChange={this.handleChange}
+        />
         <label htmlFor="email">Email</label>
         <input
           required
@@ -71,6 +90,13 @@ class SignUp extends Component {
           placeholder="Confirm Password"
           onChange={this.handleChange}
         />
+        <label htmlFor="userTyper">Which describes you best?</label>
+        <select required name="userType" value={userType} type="text" onChange={this.handleChange}>
+          <option value="">Select</option>
+          <option value="job_seeker">Job Seeker</option>
+          <option value="employer">Employer</option>
+        </select>
+
         <button type="submit">Sign Up</button>
       </form>
     )

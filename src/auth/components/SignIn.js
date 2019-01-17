@@ -10,8 +10,13 @@ class SignIn extends Component {
     super()
 
     this.state = {
+      userId: '',
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
+      passwordConfirmation: '',
+      userType: ''
     }
   }
 
@@ -24,13 +29,21 @@ class SignIn extends Component {
 
     const { email, password } = this.state
     const { flash, history, setUser } = this.props
-
     signIn(this.state)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
+      .then(res => {
+        this.setState({
+          userId: res.user.id.$oid,
+          firstName: res.user.first_name,
+          lastName: res.user.last_name,
+          userType: res.user.user_type,
+        })
+        console.log(res.user)
+      })
       .then(res => setUser(res.user))
       .then(() => flash(messages.signInSuccess, 'flash-success'))
-      .then(() => history.push('/'))
+      .then(() => history.push('/home'))
       .catch(() => flash(messages.signInFailure, 'flash-error'))
   }
 

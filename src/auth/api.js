@@ -17,9 +17,12 @@ export const signUp = credentials => {
     },
     body: JSON.stringify({
       credentials: {
+        first_name: credentials.firstName,
+        last_name: credentials.lastName,
         email: credentials.email,
         password: credentials.password,
-        password_confirmation: credentials.passwordConfirmation
+        password_confirmation: credentials.passwordConfirmation,
+        user_type: credentials.userType,
       }
     })
   })

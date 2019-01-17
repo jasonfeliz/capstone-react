@@ -36,15 +36,41 @@ class App extends Component {
   render () {
     const { flashMessage, flashType, user } = this.state
 
+    const bannerHtml = (
+      <React.Fragment>
+        <div className="banner">
+          <div>
+            <h2>Some banner text</h2>
+          </div>
+          <div>
+            <SignUp flash={this.flash} setUser={this.setUser} />
+          </div>
+        </div>
+        <div className="about">
+          <div>
+            <h3>For Companies</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                industries Lorem Ipsum has been the industry&#39;s standard dummy text
+                ever since the 1500&#39;s when an unknown printer took a galley of type and scrambled i
+                t to make a type specimen book.</p>
+          </div>
+          <div>
+            <h3>For Job Seekers</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
+                  industry.\ Lorem Ipsum has been the industry&#39;s standard dummy text
+                  ever since the 1500&#39;s, when an unknown printer took a galley of type and scrambled i
+                  t to make a type specimen book.</p>
+          </div>
+        </div>
+      </React.Fragment>
+    )
+
     return (
       <React.Fragment>
         <Header user={user} />
         {flashMessage && <h3 className={flashType}>{flashMessage}</h3>}
 
         <main className="container">
-          <Route path='/sign-up' render={() => (
-            <SignUp flash={this.flash} setUser={this.setUser} />
-          )} />
           <Route path='/sign-in' render={() => (
             <SignIn flash={this.flash} setUser={this.setUser} />
           )} />
@@ -53,6 +79,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
+          )} />
+          <Route exact path='/' render={() => (
+            bannerHtml
           )} />
         </main>
       </React.Fragment>
