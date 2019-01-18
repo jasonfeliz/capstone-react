@@ -10,7 +10,7 @@ import CreatePost from './employer/CreatePost'
 const Home = ({ user, flash }) => {
   const jobSeekerView = (
     <React.Fragment>
-      <nav>
+      <nav className="nav">
         <ul>
           <li><Link to="/home">Browse Jobs</Link></li>
           <li><Link to="/home/bookmarked-jobs">Bookmarked Jobs</Link></li>
@@ -35,7 +35,7 @@ const Home = ({ user, flash }) => {
 
   const employerView = (
     <React.Fragment>
-      <nav>
+      <nav className="nav">
         <ul>
           <li><Link to="/home">Browse Job Seekers</Link></li>
           <li><Link to="/home/create-job-post">Create Job Post</Link></li>

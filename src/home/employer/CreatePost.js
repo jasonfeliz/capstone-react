@@ -45,24 +45,28 @@ class CreatePost extends Component {
 
     const createPostHtml = (
       <React.Fragment>
+
         <form onSubmit={this.onCreatePost}>
-          <input
-            required
-            type="text"
-            name="jobTitle"
-            value={jobTitle}
-            placeholder="What is the title of the position? i.e Senior Software Engineer"
-            onChange={this.handleChange}
-          />
-          <textarea
-            required
-            type="text"
-            name="jobDescription"
-            value={jobDescription}
-            placeholder="What is the job description? "
-            onChange={this.handleChange}
-          ></textarea>
-          <input type="submit" value="Create Job Post"/>
+          <div className="edit-box">
+            <input
+              required
+              type="text"
+              name="jobTitle"
+              value={jobTitle}
+              placeholder="What is the title of the position? i.e Senior Software Engineer"
+              onChange={this.handleChange}
+            />
+            <textarea
+              required
+              type="text"
+              name="jobDescription"
+              value={jobDescription}
+              placeholder="What is the job description? "
+              onChange={this.handleChange}
+            ></textarea>
+            <input type="submit" value="Create Job Post"/>            
+          </div>
+
         </form>
       </React.Fragment>
     )

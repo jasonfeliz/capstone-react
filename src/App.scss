@@ -50,8 +50,21 @@ $charcoal: #ccc;
 
 .banner {
   display: flex;
+  text-align: center;
+  padding: 20px 5px;
+  margin-bottom: 100px;
+  box-shadow: 0 1px 0px 0px rgba(0,0,0,.1);
 }
 
+.banner div {
+  margin: auto;
+}
+.about {
+  display: flex;
+}
+.about h3 {
+  text-align: center;
+}
 body{
   color:rgba(0,0,0,.7) !important;
 }
@@ -60,7 +73,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
   padding:10px;
   border: solid 1px lavender;
   border-radius: 5px;
@@ -88,4 +102,28 @@ textarea:focus {
   min-width: 350px !important;
   margin-left: auto;
   margin-right: auto;
+}
+.nav {
+  text-align: center;
+}
+.nav ul{
+  display: flex;
+  padding: 15px 0;
+}
+
+.nav ul li {
+  margin: 5px 10px;
+}
+
+a {
+  color: #6f6f98;
+}
+
+.main-content li {
+  margin-bottom: 20px;
+  border-bottom: solid 1px rgba(0,0,0,.1);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: lighter;
 }

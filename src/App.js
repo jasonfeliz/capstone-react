@@ -42,7 +42,7 @@ class App extends Component {
       <React.Fragment>
         <div className="banner">
           <div>
-            <h2>Some banner text</h2>
+            <h2>Welcome to my cool job board website.</h2>
           </div>
           <div>
             <SignUp flash={this.flash} setUser={this.setUser} />
