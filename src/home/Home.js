@@ -7,7 +7,7 @@ import EditProfile from './job_seeker/EditProfile'
 import BrowseJobSeekers from './employer/BrowseJobSeekers'
 import CreatePost from './employer/CreatePost'
 
-const Home = ({ user }) => {
+const Home = ({ user, flash }) => {
   const jobSeekerView = (
     <React.Fragment>
       <nav>
@@ -39,6 +39,7 @@ const Home = ({ user }) => {
         <ul>
           <li><Link to="/home">Browse Job Seekers</Link></li>
           <li><Link to="/home/create-job-post">Create Job Post</Link></li>
+          <li><Link to="/home/my-job-posts">My Job Posts</Link></li>
         </ul>
       </nav>
 
@@ -47,7 +48,10 @@ const Home = ({ user }) => {
           <BrowseJobSeekers user={user} />
         )} />
         <Route path='/home/create-job-post' render={() => (
-          <CreatePost user={user} />
+          <CreatePost flash={flash} user={user} />
+        )} />
+        <Route path='/home/my-job-posts' render={() => (
+          <p>get all of my job posts</p>
         )} />
       </div>
 

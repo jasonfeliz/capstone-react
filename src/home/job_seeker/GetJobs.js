@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 // import apiUrl from '../../apiConfig'
 
 class GetJobs extends Component {
+  constructor(props)
   render () {
     return (
       <div>Get Jobs</div>

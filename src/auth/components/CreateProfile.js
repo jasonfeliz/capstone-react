@@ -6,35 +6,50 @@ import { withRouter } from 'react-router-dom'
 // import apiUrl from '../../apiConfig'
 
 class CreateProfile extends Component {
-  constructor () {
-    super()
-
-    this.state = {
-      userId: '',
-      aboutMe: '',
-      skills: [],
-      jobTitle: '',
-      location: '',
-      resumeLink: '',
-      githubLink: '',
-      linkedinLink: '',
-      codewarsUsername: '',
-      codewarsApiKey: ''
+  constructor (props) {
+    super(props)
+    const { user_type } = this.props.user
+    if(user_type === 'job_seeker'){
+      this.state = {
+        userId: '',
+        aboutMe: '',
+        skills: [],
+        jobTitle: '',
+        location: '',
+        resumeLink: '',
+        githubLink: '',
+        linkedinLink: '',
+        codewarsUsername: '',
+        codewarsApiKey: ''
+      }
+    }else {
+      this.state = {
+        employer_id: '',
+        companyName: '',
+        companyDescription: '',
+        companyLink: ''
+      }
     }
   }
 
-  handleChange = event => this.setState({
-    [event.target.name]: event.target.value
-  })
 
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
 
+  onCreateProfile = event => {
+    //write fetch api call request to create profile
+    //last .then should history push to /home
+  }
 
   render () {
-    const { userId, aboutMe, skills, jobTitle, location, githubLink, linkedinLink, codewarsUsername, codewarsApiKey } = this.state
-    const { userType } = this.props
-    
-    return (
-      <div>
+    const { userId, aboutMe, skills, jobTitle, location, githubLink, linkedinLink,codewarsUsername, codewarsApiKey, companyName, companyDescription, companyLink } = this.state
+    const { user_type } = this.props.user
+
+    const jobSeekerProfile = (
+      <React.Fragment>
         <form onSubmit={this.onCreateProfile}>
           <textarea
             required
@@ -96,6 +111,43 @@ class CreateProfile extends Component {
             onChange={this.handleChange}
           />
         </form>
+      </React.Fragment>
+    )
+
+
+    const employerProfile = (
+      <React.Fragment>
+        <form onSubmit={this.onCreateProfile}>
+          <input
+            required
+            type="text"
+            name="companyName"
+            value={companyName}
+            placeholder="Company Name"
+            onChange={this.handleChange}
+          />
+          <textarea
+            type="text"
+            name="companyDescription"
+            value={companyDescription}
+            placeholder="Write a description about your company"
+            onChange={this.handleChange}
+          ></textarea>
+          <input
+            required
+            type="text"
+            name="companyLink"
+            value={companyLink}
+            placeholder="Enter a link to your company website"
+            onChange={this.handleChange}
+          />
+
+        </form>
+      </React.Fragment>
+    )
+    return (
+      <div>
+        {user_type === 'job_seeker' ? jobSeekerProfile : employerProfile}
       </div>
     )
   }
