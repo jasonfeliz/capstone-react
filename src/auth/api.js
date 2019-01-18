@@ -95,7 +95,7 @@ export const createProfileApiJS = data => {
 
 export const createProfileApiE = data => {
 
-  return fetch(apiUrl + '/emloyers', {
+  return fetch(apiUrl + '/employers', {
     method:'POST',
     headers: {
       'Content-Type': 'application/json',
