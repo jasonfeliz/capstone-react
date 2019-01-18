@@ -18,3 +18,25 @@ export const createPostApi = data => {
     })
   })
 }
+
+export const getJobPostsApi = token => {
+
+  return fetch(apiUrl + '/job_posts',{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token token=${token}`
+    }
+  })
+}
+
+export const getJobSeekersApi = token => {
+
+  return fetch(apiUrl + '/job_seekers',{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token token=${token}`
+    }
+  })
+}
