@@ -68,3 +68,47 @@ export const changePassword = (passwords, user) => {
     })
   })
 }
+
+export const createProfileApiJS = data => {
+
+  return fetch(apiUrl + '/job_seekers', {
+    method:'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization':`Token token=${data.token}`
+    },
+    body: JSON.stringify({
+      job_seeker: {
+        user_id: data.userId,
+        about_me: data.aboutMe,
+        job_title: data.jobTitle,
+        location: data.location,
+        resume_link:data.resumeLink,
+        code_wars_username:data.codewarsUsername,
+        code_wars_api_key:data.codewarsApiKey,
+        linkedin_link:data.linkedinLink,
+        github_link:data.githubLink,
+      }
+    })
+  })
+}
+
+export const createProfileApiE = data => {
+
+  return fetch(apiUrl + '/emloyers', {
+    method:'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization':`Token token=${data.token}`
+    },
+    body: JSON.stringify({
+      employer: {
+        user_id:data.userId,
+        company_name: data.companyName,
+        company_description: data.companyDescription,
+        company_link: data.companyLink,
+
+      }
+    })
+  })
+}

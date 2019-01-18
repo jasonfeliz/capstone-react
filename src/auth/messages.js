@@ -9,5 +9,8 @@ export default {
   changePasswordSuccess: 'Password changed successfully!',
   changePasswordFailure: 'Failed to change passwords. Check your old password' +
                          ' and try again.',
-  createPostSuccess: 'Your post has been successfully created!'
+  createPostSuccess: 'Your post has been successfully created!',
+  createProfileSuccess: 'Your profile has been successfully created!',
+  createProfileSuccessE: 'Your company profile has been successfully created!',
+  editProfileSuccess: 'Your profile has been successfully updated!'
 }

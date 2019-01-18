@@ -51,3 +51,41 @@ $charcoal: #ccc;
 .banner {
   display: flex;
 }
+
+body{
+  color:rgba(0,0,0,.7) !important;
+}
+label {
+  display: none;
+}
+
+input,
+textarea {
+  padding:10px;
+  border: solid 1px lavender;
+  border-radius: 5px;
+  margin-bottom: 7px !important;
+  color:rgba(0,0,0,.7) !important;
+
+}
+li {
+  list-style: none;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-radius: 30px;
+}
+
+.edit-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-box input,
+.edit-box textarea {
+  max-width: 350px !important;
+  min-width: 350px !important;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -45,24 +45,27 @@ class SignUp extends Component {
     return (
       <form className='auth-form' onSubmit={this.signUp}>
         <h3>Sign Up</h3>
-        <label htmlFor="firstName">First Name</label>
-        <input
-          required
-          name="firstName"
-          value={firstName}
-          type="text"
-          placeholder="First Name"
-          onChange={this.handleChange}
-        />
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          required
-          name="lastName"
-          value={lastName}
-          type="text"
-          placeholder="Last Name"
-          onChange={this.handleChange}
-        />
+        <div className= "name-forms">
+          <label htmlFor="firstName">First Name</label>
+          <input
+            required
+            name="firstName"
+            value={firstName}
+            type="text"
+            placeholder="First Name"
+            onChange={this.handleChange}
+          />
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            required
+            name="lastName"
+            value={lastName}
+            type="text"
+            placeholder="Last Name"
+            onChange={this.handleChange}
+          />
+        </div>
+
         <label htmlFor="email">Email</label>
         <input
           required

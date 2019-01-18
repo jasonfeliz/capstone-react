@@ -26,7 +26,7 @@ const Home = ({ user, flash }) => {
           <p>my bookmarked jobs</p>
         )} />
         <Route path='/home/edit-profile' render={() => (
-          <EditProfile user={user} />
+          <EditProfile flash={flash} user={user} />
         )} />
       </div>
 

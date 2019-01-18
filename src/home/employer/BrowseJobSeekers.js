@@ -27,7 +27,6 @@ class GetJobSeekers extends Component {
   }
   render () {
     const JobSeekers = this.state.job_seekers.map(function(element,index){
-      console.log(element)
       return (
         <JobSeeker key={index} data={element} />
       )
