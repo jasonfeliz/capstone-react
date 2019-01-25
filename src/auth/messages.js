@@ -12,5 +12,6 @@ export default {
   createPostSuccess: 'Your post has been successfully created!',
   createProfileSuccess: 'Your profile has been successfully created!',
   createProfileSuccessE: 'Your company profile has been successfully created!',
-  editProfileSuccess: 'Your profile has been successfully updated!'
+  editProfileSuccess: 'Your profile has been successfully updated!',
+  bookmarkSuccess: 'You have bookmarked this awesome job post!'
 }

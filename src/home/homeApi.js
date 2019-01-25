@@ -74,3 +74,34 @@ export const editProfileApi = data => {
     })
   })
 }
+
+
+export const bookmarkApi = (postId, jsId) => {
+  return fetch(apiUrl + '/bookmarks', {
+    method:'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      bookmark: {
+        job_post_id: postId,
+        job_seeker_id: jsId,
+      }
+    })
+  })
+}
+
+
+export const allBookmarkApi = (token) => {
+  return fetch(apiUrl + '/bookmarks', {
+    method:'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      bookmark: {
+        token: token,
+      }
+    })
+  })
+}

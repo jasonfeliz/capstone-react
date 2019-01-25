@@ -6,6 +6,7 @@ import GetJobs from './job_seeker/GetJobs'
 import EditProfile from './job_seeker/EditProfile'
 import BrowseJobSeekers from './employer/BrowseJobSeekers'
 import CreatePost from './employer/CreatePost'
+import BookmarkJob from './BookmarkJob'
 
 const Home = ({ user, flash }) => {
   const jobSeekerView = (
@@ -20,7 +21,7 @@ const Home = ({ user, flash }) => {
 
       <div className='main-content'>
         <Route exact path='/home' render={() => (
-          <GetJobs user={user} />
+          <GetJobs user={user} flash={flash}/>
         )} />
         <Route path='/home/bookmarked-jobs' render={() => (
           <p>my bookmarked jobs</p>
@@ -28,6 +29,9 @@ const Home = ({ user, flash }) => {
         <Route path='/home/edit-profile' render={() => (
           <EditProfile flash={flash} user={user} />
         )} />
+        <Route exact path="/home/bookmark" render={() => (
+          <BookmarkJob flash={flash} user={user} />
+        )}/>
       </div>
 
     </React.Fragment>

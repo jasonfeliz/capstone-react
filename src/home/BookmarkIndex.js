@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { getJobPostsApi } from '../homeApi'
-import JobPost  from '../JobPost'
+import { allBookmarksApi } from '../homeApi'
+import Home  from './Home'
 // import messages from '../messages'
 // import apiUrl from '../../apiConfig'
 
-class GetJobs extends Component {
+class GetBookmarks extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -16,7 +16,7 @@ class GetJobs extends Component {
 
   componentDidMount(){
     const { token } = this.props.user
-    getJobPostsApi(token)
+    allBookmarksApi(token)
       .then(res => res.json())
       .then(res => {
         this.setState({
