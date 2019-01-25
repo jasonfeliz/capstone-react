@@ -95,7 +95,7 @@ class SignUp extends Component {
         />
         <label htmlFor="userTyper">Which describes you best?</label>
         <select required name="userType" value={userType} type="text" onChange={this.handleChange}>
-          <option value="">Which desicribes your best?</option>
+          <option value="">Which describes you best?</option>
           <option value="job_seeker">Job Seeker</option>
           <option value="employer">Employer</option>
         </select>

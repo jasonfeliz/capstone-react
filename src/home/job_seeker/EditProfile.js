@@ -30,7 +30,6 @@ class EditProfile extends Component {
   }
 
   componentDidMount(){
-
     getJobSeekerApi(this.state)
       .then(res => res.json())
       .then(res => {
