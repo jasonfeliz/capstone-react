@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Route, Link } from 'react-router-dom'
+import { Route, Link, withRouter } from 'react-router-dom'
 import BookmarkJob from './BookmarkJob'
 
-import { bookmarkApi, getJobSeekerApi } from './homeApi'
+import { bookmarkApi, getJobSeekerApi, removeJobApi } from './homeApi'
 import messages from '../auth/messages'
 class JobPost extends Component {
   constructor(props){
@@ -10,10 +10,18 @@ class JobPost extends Component {
     this.state = {
       userId: this.props.user.id.$oid,
       userToken: this.props.user.token,
-      jobSeekerId: '',
+      jobSeekerId: ''
     }
   }
 
+  onRemove = event => {
+    const { flash, history, action } = this.props
+    const postId = event.target.id
+    removeJobApi(postId,this.state.userToken)
+      .then(() => flash(messages.removeJobSuccess, 'flash-success'))
+      .then(action)
+      .catch(console.error)
+  }
 
   onBookmark = event => {
     const postId = event.target.id
@@ -39,15 +47,20 @@ class JobPost extends Component {
         <p id = {this.props.data.id.$oid} onClick={this.onBookmark} className="bookmark-btn">Bookmark</p>
       </React.Fragment>
     )
+    const removeJob = (
+      <React.Fragment>
+        <p id = {this.props.data.id.$oid} onClick={this.onRemove} className="remove-btn">Remove Job Post</p>
+      </React.Fragment>
+    )
     return (
       <li>
         <h4>{ this.props.data.job_title}</h4>
         <p>{ this.props.data.job_description }</p>
-        {this.props.data.user.user_id.$oid != this.props.user.id.$oid && bookmarkJob}
+        {this.props.data.user.user_id.$oid === this.props.user.id.$oid ? removeJob : bookmarkJob}
       </li>
     )
   }
 
 }
 
-export default JobPost
+export default withRouter(JobPost)

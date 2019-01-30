@@ -115,3 +115,13 @@ export const allBookmarkApi = (token) => {
     })
   })
 }
+
+export const removeJobApi = (postId,token) => {
+  return fetch(apiUrl + '/job_posts/' + postId,{
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token token=${token}`
+    }
+  })
+}

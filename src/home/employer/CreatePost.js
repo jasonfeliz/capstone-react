@@ -31,7 +31,7 @@ class CreatePost extends Component {
     createPostApi(this.state)
       .then(res => res.json())
       .then(() => flash(messages.createPostSuccess, 'flash-success'))
-      .then(() => history.push('/home'))
+      .then(() => history.push('/home/my-job-posts'))
       .catch(console.error)
   }
 
@@ -64,7 +64,7 @@ class CreatePost extends Component {
               placeholder="What is the job description? "
               onChange={this.handleChange}
             ></textarea>
-            <input type="submit" value="Create Job Post"/>            
+            <input type="submit" value="Create Job Post"/>
           </div>
 
         </form>

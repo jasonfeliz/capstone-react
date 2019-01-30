@@ -14,6 +14,17 @@ class GetMyJobs extends Component {
     }
   }
 
+  handler = () => (
+    getMyJobPostsApi(this.props.user)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          job_posts: res.job_posts
+        })
+      })
+      .catch(console.error)
+  )
+
   componentDidMount(){
     getMyJobPostsApi(this.props.user)
       .then(res => res.json())
@@ -26,9 +37,10 @@ class GetMyJobs extends Component {
   }
   render () {
     const { user, flash } = this.props
+    const handler = this.handler
     const JobPosts = this.state.job_posts.map(function(element,index){
       return (
-        <JobPost key={index} data={element} user={user} flash={flash}/>
+        <JobPost key={index} data={element} user={user} flash={flash} action={handler}/>
       )
     })
     return (
