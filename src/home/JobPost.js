@@ -43,7 +43,7 @@ class JobPost extends Component {
       <li>
         <h4>{ this.props.data.job_title}</h4>
         <p>{ this.props.data.job_description }</p>
-        {bookmarkJob}
+        {this.props.data.user.user_id.$oid != this.props.user.id.$oid && bookmarkJob}
       </li>
     )
   }

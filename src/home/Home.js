@@ -6,6 +6,7 @@ import GetJobs from './job_seeker/GetJobs'
 import EditProfile from './job_seeker/EditProfile'
 import BrowseJobSeekers from './employer/BrowseJobSeekers'
 import CreatePost from './employer/CreatePost'
+import GetMyJobs from './employer/GetMyJobs'
 import BookmarkJob from './BookmarkJob'
 
 const Home = ({ user, flash }) => {
@@ -55,7 +56,7 @@ const Home = ({ user, flash }) => {
           <CreatePost flash={flash} user={user} />
         )} />
         <Route path='/home/my-job-posts' render={() => (
-          <p>get all of my job posts</p>
+          <GetMyJobs flash={flash} user={user} />
         )} />
       </div>
 

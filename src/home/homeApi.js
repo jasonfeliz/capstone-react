@@ -31,6 +31,16 @@ export const getJobPostsApi = token => {
   })
 }
 
+export const getMyJobPostsApi = data => {
+  return fetch(apiUrl + '/my_job_posts/' + data.id.$oid,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token token=${data.token}`
+    }
+  })
+}
+
 export const getJobSeekersApi = token => {
 
   return fetch(apiUrl + '/job_seekers',{
