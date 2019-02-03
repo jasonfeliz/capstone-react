@@ -10,27 +10,26 @@ class GetBookmarks extends Component {
   constructor(props){
     super(props)
     this.state = {
-      job_posts: []
+      bookmarks: []
     }
   }
 
   componentDidMount(){
     const { user, token } = this.props.user
     allBookmarksApi(this.props.user)
-    // .then(res => res.json())
-    // .then(console.log)
-    // .then(res => {
-    //   this.setState({
-    //     job_posts: res.job_posts
-    //   })
-    // })
-    // .catch(console.error)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          bookmarks: res.bookmarks
+        })
+      })
+      .catch(console.error)
   }
   render () {
     const { user, flash } = this.props
-    const JobPosts = this.state.job_posts.map(function(element,index){
+    const JobPosts = this.state.bookmarks.map(function(element,index){
       return (
-        <JobPost key={index} data={element} user={user} flash={flash}/>
+        <JobPost key={index} data={element.job_post} user={user} flash={flash}/>
       )
     })
     return (

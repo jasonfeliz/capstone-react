@@ -103,14 +103,13 @@ export const bookmarkApi = (postId, jsId) => {
 
 
 export const allBookmarksApi = (data) => {
-  console.log(data)
-  // return fetch(apiUrl + '/bookmarks/' + data.id.$oid, {
-  //   method:'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Token token=${data.token}`
-  //   }
-  // })
+  return fetch(apiUrl + '/my_bookmarks/' + data.id.$oid, {
+    method:'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token token=${data.token}`
+    }
+  })
 }
 
 export const removeJobApi = (postId,token) => {
