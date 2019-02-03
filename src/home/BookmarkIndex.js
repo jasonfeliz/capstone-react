@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { allBookmarksApi } from '../homeApi'
-import Home  from './Home'
+import { allBookmarksApi } from './homeApi'
+import JobPost  from './JobPost'
 // import messages from '../messages'
 // import apiUrl from '../../apiConfig'
 
@@ -15,15 +15,16 @@ class GetBookmarks extends Component {
   }
 
   componentDidMount(){
-    const { token } = this.props.user
-    allBookmarksApi(token)
-      .then(res => res.json())
-      .then(res => {
-        this.setState({
-          job_posts: res.job_posts
-        })
-      })
-      .catch(console.error)
+    const { user, token } = this.props.user
+    allBookmarksApi(this.props.user)
+    // .then(res => res.json())
+    // .then(console.log)
+    // .then(res => {
+    //   this.setState({
+    //     job_posts: res.job_posts
+    //   })
+    // })
+    // .catch(console.error)
   }
   render () {
     const { user, flash } = this.props
@@ -40,4 +41,4 @@ class GetBookmarks extends Component {
   }
 }
 
-export default GetJobs
+export default withRouter(GetBookmarks)

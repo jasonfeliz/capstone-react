@@ -8,6 +8,7 @@ import BrowseJobSeekers from './employer/BrowseJobSeekers'
 import CreatePost from './employer/CreatePost'
 import GetMyJobs from './employer/GetMyJobs'
 import BookmarkJob from './BookmarkJob'
+import BookmarkIndex from './BookmarkIndex'
 
 const Home = ({ user, flash }) => {
   const jobSeekerView = (
@@ -25,7 +26,7 @@ const Home = ({ user, flash }) => {
           <GetJobs user={user} flash={flash}/>
         )} />
         <Route path='/home/bookmarked-jobs' render={() => (
-          <p>my bookmarked jobs</p>
+          <BookmarkIndex user={user} flash={flash}/>
         )} />
         <Route path='/home/edit-profile' render={() => (
           <EditProfile flash={flash} user={user} />
