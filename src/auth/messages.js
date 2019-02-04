@@ -14,5 +14,6 @@ export default {
   createProfileSuccessE: 'Your company profile has been successfully created!',
   editProfileSuccess: 'Your profile has been successfully updated!',
   bookmarkSuccess: 'You have bookmarked this awesome job post!',
-  removeJobSuccess: 'You have deleted this awesome job post!'
+  removeJobSuccess: 'You have deleted this awesome job post!',
+  removeBookmarkSuccess: 'You have removed this bookmark!'
 }

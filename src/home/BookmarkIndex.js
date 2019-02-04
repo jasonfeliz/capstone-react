@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { allBookmarksApi } from './homeApi'
-import JobPost  from './JobPost'
+import BookmarkPost  from './BookmarkPost'
 // import messages from '../messages'
 // import apiUrl from '../../apiConfig'
 
@@ -13,6 +13,17 @@ class GetBookmarks extends Component {
       bookmarks: []
     }
   }
+
+  handler = () => (
+    allBookmarksApi(this.props.user)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          bookmarks: res.bookmarks
+        })
+      })
+      .catch(console.error)
+  )
 
   componentDidMount(){
     const { user, token } = this.props.user
@@ -27,14 +38,15 @@ class GetBookmarks extends Component {
   }
   render () {
     const { user, flash } = this.props
-    const JobPosts = this.state.bookmarks.map(function(element,index){
+    const handler = this.handler
+    const BookmarkPosts = this.state.bookmarks.map(function(element,index){
       return (
-        <JobPost key={index} data={element.job_post} user={user} flash={flash}/>
+        <BookmarkPost key={index} data={element} user={user} flash={flash} action={handler}/>
       )
     })
     return (
       <div>
-        {JobPosts}
+        {BookmarkPosts}
       </div>
     )
   }

@@ -14,9 +14,6 @@ class JobPost extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log(this.props.data)
-  }
   onRemove = event => {
     const { flash, history, action } = this.props
     const postId = event.target.id
@@ -25,7 +22,6 @@ class JobPost extends Component {
       .then(action)
       .catch(console.error)
   }
-
 
   onBookmark = event => {
     const postId = event.target.id
@@ -57,7 +53,6 @@ class JobPost extends Component {
       </React.Fragment>
     )
     return (
-
       <li>
         <h4>{ this.props.data.job_title}</h4>
         <p>{ this.props.data.job_description }</p>

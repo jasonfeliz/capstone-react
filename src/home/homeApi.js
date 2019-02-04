@@ -121,3 +121,13 @@ export const removeJobApi = (postId,token) => {
     }
   })
 }
+
+export const removeBookmarkApi = (bookmarkId,token) => {
+  return fetch(apiUrl + '/bookmarks/' + bookmarkId,{
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Token token=${token}`
+    }
+  })
+}
