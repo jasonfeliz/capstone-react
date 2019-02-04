@@ -16,9 +16,7 @@ class BookmarkPost extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log(this.props.data)
-  }
+
   onRemove = event => {
     const { flash, history, action } = this.props
     const bookmarkId = event.target.id
@@ -29,7 +27,7 @@ class BookmarkPost extends Component {
   }
 
   render(){
-    const removeJob = (
+    const removeBookmark = (
       <React.Fragment>
         <p id = {this.props.data.id.$oid} onClick={this.onRemove} className="remove-btn">Remove Bookmark</p>
       </React.Fragment>
@@ -38,7 +36,7 @@ class BookmarkPost extends Component {
       <li>
         <h4>{ this.props.data.job_post.job_title}</h4>
         <p>{ this.props.data.job_post.job_description}</p>
-        {removeJob}
+        {removeBookmark}
       </li>
     )
   }
