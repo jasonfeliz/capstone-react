@@ -83,7 +83,7 @@ class EditProfile extends Component {
               type="text"
               name="jobTitle"
               value={jobTitle}
-              placeholder="Enter your job title or desired position you're looking for i.e Software Engineer"
+              placeholder="Job Role"
               onChange={this.handleChange}
             />
             <input

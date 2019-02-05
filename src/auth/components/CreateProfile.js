@@ -21,7 +21,8 @@ class CreateProfile extends Component {
         githubLink: '',
         linkedinLink: '',
         codewarsUsername: '',
-        codewarsApiKey: ''
+        codewarsApiKey: '',
+        bootcamp: ''
       }
     }else {
       this.state = {
@@ -36,9 +37,11 @@ class CreateProfile extends Component {
 
 
   handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
+    if(event.target.value !== '') {
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+    }
   }
 
   onCreateProfile = event => {
@@ -63,7 +66,7 @@ class CreateProfile extends Component {
   }
 
   render () {
-    const { userId, aboutMe, skills, jobTitle, location, githubLink, linkedinLink,codewarsUsername, codewarsApiKey, companyName, companyDescription, companyLink } = this.state
+    const { userId, aboutMe, skills, jobTitle, location, githubLink, linkedinLink,codewarsUsername, codewarsApiKey, bootcamp, companyName, companyDescription, companyLink } = this.state
     const { user_type } = this.props.user
 
     const jobSeekerProfile = (
@@ -84,14 +87,6 @@ class CreateProfile extends Component {
               name="skills"
               value={skills}
               placeholder="List some of your skills"
-              onChange={this.handleChange}
-            />
-            <input
-              required
-              type="text"
-              name="jobTitle"
-              value={jobTitle}
-              placeholder="Enter your job title or desired position you're looking for i.e Software Engineer"
               onChange={this.handleChange}
             />
             <input
@@ -127,10 +122,30 @@ class CreateProfile extends Component {
               type="text"
               name="codewarsApiKey"
               value={codewarsApiKey}
-              placeholder="Enter your CodeWars.com API Key -- Check your account settings"
+              placeholder="Enter your CodeWars.com API Key"
               onChange={this.handleChange}
             />
+            <select required name="jobTitle" value={jobTitle} type="text" onChange={this.handleChange}>
+              <option value="">What is your job role?</option>
+              <option value="Full-stack Developer">Full-stack Developer</option>
+              <option value="Front-end Developer">Front-end Developer</option>
+              <option value="Back-end Developer">Back-end Developer</option>
+              <option value="Data Scientist">Data Scientist</option>
+              <option value="UI/UX Designer">UI/UX Designer</option>
+            </select>
+
+            <select required name="bootcamp" value={bootcamp} type="text" onChange={this.handleChange}>
+              <option value="">What bootcamp did you attend?</option>
+              <option value="General Assembly">General Assembly</option>
+              <option value="App Academy">App Academy</option>
+              <option value="Launch Academy">Launch Academy</option>
+              <option value="Hack Reactor">Hack Reactor</option>
+              <option value="UI/UX Designer">UI/UX Designer</option>
+            </select>
+
             <input type="submit" value="Create Profile" />
+
+
           </div>
 
         </form>
@@ -172,7 +187,7 @@ class CreateProfile extends Component {
       </React.Fragment>
     )
     return (
-      <div>
+      <div className="form-div">
         {user_type === 'job_seeker' ? jobSeekerProfile : employerProfile}
       </div>
     )

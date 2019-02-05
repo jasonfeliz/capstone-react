@@ -97,12 +97,17 @@ textarea:focus {
 }
 
 .edit-box input,
-.edit-box textarea {
+.edit-box textarea,
+.edit-box select {
   max-width: 350px !important;
   min-width: 350px !important;
   margin-left: auto;
   margin-right: auto;
+  height: 55px;
+  background: transparent;
 }
+
+
 .nav {
   text-align: center;
 }
@@ -131,4 +136,8 @@ h1, h2, h3, h4, h5, h6 {
 .bookmark-btn,
 .remove-btn {
   cursor: pointer;
+}
+
+.form-div {
+  margin-top: 25px;
 }

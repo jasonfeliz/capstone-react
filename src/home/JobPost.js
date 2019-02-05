@@ -47,16 +47,18 @@ class JobPost extends Component {
         <p id = {this.props.data.id.$oid} onClick={this.onBookmark} className="bookmark-btn">Bookmark</p>
       </React.Fragment>
     )
-    const removeJob = (
+    const jobAction = (
       <React.Fragment>
         <p id = {this.props.data.id.$oid} onClick={this.onRemove} className="remove-btn">Remove Job Post</p>
+        <p className="remove-btn">Update Job Post</p>
       </React.Fragment>
     )
+
     return (
       <li>
         <h4>{ this.props.data.job_title}</h4>
         <p>{ this.props.data.job_description }</p>
-        {this.props.data.user.user_id.$oid === this.props.user.id.$oid ? removeJob : bookmarkJob}
+        {this.props.data.user.user_id.$oid === this.props.user.id.$oid ? jobAction : bookmarkJob}
       </li>
     )
   }

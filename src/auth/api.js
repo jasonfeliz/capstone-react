@@ -88,6 +88,7 @@ export const createProfileApiJS = data => {
         code_wars_api_key:data.codewarsApiKey,
         linkedin_link:data.linkedinLink,
         github_link:data.githubLink,
+        bootcamp: data.bootcamp,
       }
     })
   })
