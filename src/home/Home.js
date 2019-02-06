@@ -10,6 +10,7 @@ import EditPost from './employer/EditPost'
 import GetMyJobs from './employer/GetMyJobs'
 import BookmarkJob from './BookmarkJob'
 import BookmarkIndex from './BookmarkIndex'
+import ViewJobPost from './GetJob.js'
 
 const Home = ({ user, flash }) => {
   const jobSeekerView = (
@@ -35,6 +36,9 @@ const Home = ({ user, flash }) => {
         <Route exact path="/home/bookmark" render={() => (
           <BookmarkJob flash={flash} user={user} />
         )}/>
+        <Route path='/home/job-post' render={() => (
+          <ViewJobPost flash={flash} user={user} />
+        )} />
       </div>
 
     </React.Fragment>
@@ -62,6 +66,9 @@ const Home = ({ user, flash }) => {
         )} />
         <Route path='/home/edit-job-post' render={() => (
           <EditPost flash={flash} user={user} />
+        )} />
+        <Route path='/home/job-post' render={() => (
+          <ViewJobPost flash={flash} user={user} />
         )} />
       </div>
 

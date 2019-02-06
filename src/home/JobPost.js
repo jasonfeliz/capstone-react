@@ -64,7 +64,13 @@ class JobPost extends Component {
 
     return (
       <li>
-        <h4>{ this.props.data.job_title}</h4>
+
+        <Link to={{
+          pathname:'/home/job-post',
+          state: {
+            data: this.props.data
+          }
+        }} ><h4>{ this.props.data.job_title}</h4></Link>
         <p>{ this.props.data.job_description }</p>
         {this.props.data.user.user_id.$oid === this.props.user.id.$oid ? jobAction : bookmarkJob}
       </li>
