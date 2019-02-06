@@ -17,12 +17,21 @@ class GetJobSeekers extends Component {
   }
 
   handleChange = event => {
+    const { token } = this.props.user
     this.setState({
       [event.target.name]: event.target.value
+    },function(){
+      browseJobSeekersApi(token, this.state)
+        .then(res => res.json())
+        .then(res => {
+          this.setState({
+            job_seekers: res.job_seekers
+          })
+        })
+        .catch(console.error)
     })
-    console.log(this.state)
-    const { token } = this.props.user
-    browseJobSeekersApi(token, this.state)
+
+
   }
 
   componentDidMount(){
