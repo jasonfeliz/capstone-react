@@ -6,6 +6,7 @@ import GetJobs from './job_seeker/GetJobs'
 import EditProfile from './job_seeker/EditProfile'
 import BrowseJobSeekers from './employer/BrowseJobSeekers'
 import CreatePost from './employer/CreatePost'
+import EditPost from './employer/EditPost'
 import GetMyJobs from './employer/GetMyJobs'
 import BookmarkJob from './BookmarkJob'
 import BookmarkIndex from './BookmarkIndex'
@@ -58,6 +59,9 @@ const Home = ({ user, flash }) => {
         )} />
         <Route path='/home/my-job-posts' render={() => (
           <GetMyJobs flash={flash} user={user} />
+        )} />
+        <Route path='/home/edit-job-post' render={() => (
+          <EditPost flash={flash} user={user} />
         )} />
       </div>
 

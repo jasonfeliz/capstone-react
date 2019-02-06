@@ -4,6 +4,7 @@ import BookmarkJob from './BookmarkJob'
 
 import { bookmarkApi, getJobSeekerApi, removeJobApi } from './homeApi'
 import messages from '../auth/messages'
+
 class JobPost extends Component {
   constructor(props){
     super(props)
@@ -50,7 +51,14 @@ class JobPost extends Component {
     const jobAction = (
       <React.Fragment>
         <p id = {this.props.data.id.$oid} onClick={this.onRemove} className="remove-btn">Remove Job Post</p>
-        <p className="remove-btn">Update Job Post</p>
+        <p><Link to={{
+          pathname: '/home/edit-job-post',
+          state: {
+            job_post_id: this.props.data.id.$oid,
+            job_title: this.props.data.job_title,
+            job_description: this.props.data.job_description
+          }
+        }}>Update Job Post</Link> </p>
       </React.Fragment>
     )
 

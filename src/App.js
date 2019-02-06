@@ -4,7 +4,6 @@ import { Route, Link } from 'react-router-dom'
 
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
-import Modals from './modals/Modals'
 import Home from './home/Home'
 import SignUp from './auth/components/SignUp'
 import CreateProfile from './auth/components/CreateProfile'

@@ -86,6 +86,7 @@ export const editProfileApi = data => {
 }
 
 
+
 export const bookmarkApi = (postId, jsId) => {
   return fetch(apiUrl + '/bookmarks', {
     method:'POST',
@@ -129,5 +130,21 @@ export const removeBookmarkApi = (bookmarkId,token) => {
       'Content-Type': 'application/json',
       'Authorization': `Token token=${token}`
     }
+  })
+}
+
+export const editPostApi = data => {
+  return fetch(apiUrl + '/job_posts/' + data.jobPostId, {
+    method:'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization':`Token token=${data.token}`
+    },
+    body: JSON.stringify({
+      job_post: {
+        job_title: data.JobTitle,
+        job_description: data.jobDescription
+      }
+    })
   })
 }

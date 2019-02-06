@@ -15,5 +15,6 @@ export default {
   editProfileSuccess: 'Your profile has been successfully updated!',
   bookmarkSuccess: 'You have bookmarked this awesome job post!',
   removeJobSuccess: 'You have deleted this awesome job post!',
-  removeBookmarkSuccess: 'You have removed this bookmark!'
+  removeBookmarkSuccess: 'You have removed this bookmark!',
+  editPostSuccess: 'Your post has been successfully updated!'
 }

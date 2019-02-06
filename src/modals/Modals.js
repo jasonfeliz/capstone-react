@@ -5,8 +5,11 @@ import './Modals.scss'
 import UpdateJobPostModal from './UpdateJobPostModal'
 
 
- const Modal = props => {
-   
- }
+const Modal = props => {
 
- export default Modal
+  <div>Update something, duh</div>
+
+
+}
+
+export default Modal
