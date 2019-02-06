@@ -27,6 +27,8 @@ class GetJobs extends Component {
   }
   render () {
     const { user, flash } = this.props
+
+
     const JobPosts = this.state.job_posts.map(function(element,index){
       return (
         <JobPost key={index} data={element} user={user} flash={flash}/>

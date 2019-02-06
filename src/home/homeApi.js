@@ -52,6 +52,24 @@ export const getJobSeekersApi = token => {
   })
 }
 
+
+export const browseJobSeekersApi = (token,data) => {
+  console.log(data)
+  // return fetch(apiUrl + '/browse_job_seekers',{
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': `Token token=${token}`
+  //   },
+  //   body: JSON.stringify({
+  //     job_seeker: {
+  //       job_role: data.browseByJobRoles,
+  //       bootcamp: data.browseByBootcamp
+  //     }
+  //   })
+  // })
+}
+
 export const getJobSeekerApi = data => {
   return fetch(apiUrl + '/job_seekers/' + data.userId,{
     method: 'GET',

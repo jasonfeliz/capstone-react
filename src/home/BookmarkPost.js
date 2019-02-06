@@ -34,7 +34,7 @@ class BookmarkPost extends Component {
     )
     return (
       <li>
-        <h4>{ this.props.data.job_post.job_title}</h4>
+        <h3>{ this.props.data.job_post.job_title}</h3>
         <p>{ this.props.data.job_post.job_description}</p>
         {removeBookmark}
       </li>
