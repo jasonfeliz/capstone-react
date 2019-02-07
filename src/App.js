@@ -51,17 +51,15 @@ class App extends Component {
         <div className="about">
           <div>
             <h3>For Companies</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                industries Lorem Ipsum has been the industry&#39;s standard dummy text
-                ever since the 1500&#39;s when an unknown printer took a galley of type and scrambled i
-                t to make a type specimen book.</p>
+            <p>Cool Jobs helps zero employers find the right, the most talented,
+              most recent bootcamp graduates. Start hiring now on the world&#39;s
+              #1,402,993 job site.</p>
           </div>
           <div>
             <h3>For Job Seekers</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting
-                  industry.\ Lorem Ipsum has been the industry&#39;s standard dummy text
-                  ever since the 1500&#39;s, when an unknown printer took a galley of type and scrambled i
-                  t to make a type specimen book.</p>
+            <p>Cool Jobs has never been able to find recent bootcamp graduates jobs.
+              For some reason, employers really have no trust in our cool job board website.
+            Start wasting your time now, join us for free!</p>
           </div>
         </div>
       </React.Fragment>

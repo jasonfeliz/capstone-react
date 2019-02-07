@@ -44,7 +44,7 @@ class SignUp extends Component {
 
     return (
       <form className='auth-form' onSubmit={this.signUp}>
-        <h3>Sign Up</h3>
+        <h3>Register - It&#39;s Free!</h3>
         <div className= "name-forms">
           <label htmlFor="firstName">First Name</label>
           <input
@@ -100,7 +100,7 @@ class SignUp extends Component {
           <option value="employer">Employer</option>
         </select>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="some-btn">Sign Up</button>
       </form>
     )
   }
