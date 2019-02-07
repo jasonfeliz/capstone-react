@@ -159,7 +159,7 @@ export const editPostApi = data => {
     },
     body: JSON.stringify({
       job_post: {
-        job_title: data.JobTitle,
+        job_title: data.jobTitle,
         job_description: data.jobDescription
       }
     })

@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom'
 
 
 const ViewJobPost = props => {
-
   const JobPost = (
     <React.Fragment>
       <h4>{props.location.state.data.job_title}</h4>

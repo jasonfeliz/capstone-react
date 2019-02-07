@@ -43,6 +43,7 @@ class GetJobSeekers extends Component {
           job_seekers: res.job_seekers
         })
       })
+      .then(() => console.log(this.state))
       .catch(console.error)
   }
   render () {

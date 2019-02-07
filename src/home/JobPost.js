@@ -45,20 +45,26 @@ class JobPost extends Component {
   render(){
     const bookmarkJob = (
       <React.Fragment>
-        <p id = {this.props.data.id.$oid} onClick={this.onBookmark} className="bookmark-btn">Bookmark</p>
+        <div className="icons">
+          <i id = {this.props.data.id.$oid} onClick={this.onBookmark} className="far fa-bookmark"></i>
+        </div>
       </React.Fragment>
     )
     const jobAction = (
       <React.Fragment>
-        <p id = {this.props.data.id.$oid} onClick={this.onRemove} className="remove-btn">Remove Job Post</p>
-        <p><Link to={{
-          pathname: '/home/edit-job-post',
-          state: {
-            job_post_id: this.props.data.id.$oid,
-            job_title: this.props.data.job_title,
-            job_description: this.props.data.job_description
-          }
-        }}>Update Job Post</Link> </p>
+        <div className="icons">
+          <i id = {this.props.data.id.$oid} onClick={this.onRemove} className="fas fa-trash-alt"></i>
+          <Link to={{
+            pathname: '/home/edit-job-post',
+            state: {
+              job_post_id: this.props.data.id.$oid,
+              job_title: this.props.data.job_title,
+              job_description: this.props.data.job_description
+            }
+          }}><i className="far fa-edit"></i></Link>
+        </div>
+
+
       </React.Fragment>
     )
 
@@ -71,7 +77,7 @@ class JobPost extends Component {
             data: this.props.data
           }
         }} ><h3>{ this.props.data.job_title}</h3></Link>
-        <p>{ this.props.data.job_description }</p>
+        <p>{ this.props.data.job_description}</p>
         {this.props.data.user.user_id.$oid === this.props.user.id.$oid ? jobAction : bookmarkJob}
       </li>
     )
