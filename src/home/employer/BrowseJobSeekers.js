@@ -65,7 +65,6 @@ class GetJobSeekers extends Component {
           <option value="App Academy">App Academy</option>
           <option value="Launch Academy">Launch Academy</option>
           <option value="Hack Reactor">Hack Reactor</option>
-          <option value="UI/UX Designer">UI/UX Designer</option>
         </select>
       </React.Fragment>
     )
